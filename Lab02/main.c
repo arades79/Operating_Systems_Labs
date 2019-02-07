@@ -149,7 +149,7 @@ int get_pid(char* s)
 int main() 
 {
     FILE *fp;
-    char *current_line;
+    char current_line[100];
     int line_size;
     size_t buffer_size;
     
@@ -157,7 +157,7 @@ int main()
     {
         printf("Simulation %i begin:\n", file_num);
         fp = fopen(file_paths[file_num],"r");
-        line_size = getline(&current_line,&buffer_size,fp);
+        line_size = fgets(current_line, 100, fp);
         printf("Initial state\n%s\n",current_line);
         while ( get_pid(current_line) != -1)
         {
@@ -165,9 +165,8 @@ int main()
             // this can probably be a seperate function that does cool recursion
         }
         // split string on ';' for individual commands to feed into parser
-        while ((line_size = getline(&current_line, &buffer_size, fp)) != -1)
+        while (fgets(current_line, 100, fp))
         {
-            fgets(current_line,500,fp);
             action next_action = get_action(current_line);
             int current_process = processes[get_pid(current_line)];
 
@@ -175,7 +174,7 @@ int main()
             {
                 case IORequest:
                     iodevice next_device = get_io_device(current_line);
-                    printf("")
+                    printf("");
                     break;
             
                 default:

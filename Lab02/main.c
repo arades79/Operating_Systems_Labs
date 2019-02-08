@@ -30,14 +30,6 @@ typedef enum action
     TimeExpires
 } action;
 
-typedef enum iodevice
-{
-    Disk,
-    Keyboard,
-    Monitor,
-    Mouse,
-    Printer
-} iodevice;
 
 static const char * file_paths[] = 
 {
@@ -104,14 +96,6 @@ static pstate processes[] =
     Ready
 };
 
-iodevice get_io_device(char *s) 
-{
-    if (strstr(s,"disk")) return Disk;
-    if (strstr(s,"keyboard")) return Keyboard;
-    if (strstr(s,"monitor")) return Monitor;
-    if (strstr(s,"mouse")) return Mouse;
-    if (strstr(s,"printer")) return Printer;
-}
 
 action get_action(char *s) 
 {
@@ -177,14 +161,7 @@ void print_states() {
 
 int main() 
 {
-    //FILE *fp;
-    // char current_line[100];
-    // char sub_line[100];
-    // size_t buffer_size;
-    // int line_index = 0;
-    // int line_index_offset = line_index;
-    
-    for (size_t file_num = 0; file_num < 4; ++file_num)
+    for (size_t file_num = 0; file_num < 4; ++file_num) //For each file in the list do a separate analysis
     {
         char current_line[500];
         char sub_line[100];
@@ -192,16 +169,15 @@ int main()
         int line_index = 0;
         int line_index_offset = 0;
         
-        //line_index = line_index_offset = 0;
-        printf("Simulation %i begin:\n", file_num);
+        printf("\nSimulation %i begin:\n", file_num);
         
         for(int i=0;i<20;i++) {
             processes[i] = NotExist;
-        }
+        } //If the process doesn't exist at the start, it's not one that we're working with. We'll use the first line to see if they do exist.
         
         
         FILE *fp = fopen(file_paths[file_num],"r");
-        if(fp == NULL) {
+        if(fp == NULL) { //check to make sure the file exists (in case you're using a different directory, etc)
             printf("File was null");
             return -1;
         }
@@ -229,10 +205,8 @@ int main()
         while (fgets(current_line, 500, fp) != NULL)
         {
             if (strlen(current_line) < 3) {
-                continue;
+                continue; //Means it's c being stupid
             }
-            // printf("Here's currentline:%s:done",current_line);
-            // printf("Got current_line: %s\n",current_line);
             int curr_time = get_first_int(current_line);
             line_index = 0;
             while(current_line[line_index] != ':') {
@@ -243,7 +217,6 @@ int main()
             
             int reached_end = 0;
             
-            //while(current_line[line_index-1] != '.') {
             while(reached_end == 0) {
                 line_index++;
                 line_index_offset = line_index;
@@ -268,7 +241,6 @@ int main()
                         processes[current_process] = Running;
                         break;
                     case IORequest:
-                        //next_device = get_io_device(sub_line); (Don't actually need to know the device)
                         processes[current_process] = Blocked;
                         break;
                     case SwappedOut:
@@ -297,7 +269,7 @@ int main()
                         break;
                     case Terminated:
                         processes[current_process] = Completed;
-                        if (do_part_2 == 1) {
+                        if (do_part_2 == 1) { //Swap a process in, since we've just completed one
                             for(int i=0;i<20;i++) {
                                 if(processes[i] == ReadySuspend || processes[i] == BlockedSuspend) {
                                     if (processes[i] == ReadySuspend) {
@@ -323,23 +295,23 @@ int main()
                         break;
                 }
             }
-            //Part 2: (TODO) swap out a single process when all processes are either blocked or new
             //end of a line here
+            //Part 2: swap out a single process when all processes are either blocked or new
             if(do_part_2 == 1) {
                 int need_to_swap_out = 1;
-                for(int i=0;i<20;i++) {
+                for(int i=0;i<20;i++) { //First, see if we need to swap one out
                     if (processes[i] != Blocked && processes[i] != New && processes[i] != NotExist) {
                         need_to_swap_out = 0;
                     }
                 }
-                if(need_to_swap_out) {
+                if(need_to_swap_out) { //If we need to swap one out, swap out one that's blocked
                     for(int i=0;i<20;i++) {
                         if (processes[i] == Blocked) {
                             processes[i] = BlockedSuspend;
                             break;
                         }
                     }
-                    for (int i=0;i<20;i++) {
+                    for (int i=0;i<20;i++) { //If we've swapped one out, we can now bring one in (if one exists)
                         if(processes[i]==New) {
                             processes[i] = Ready;
                             break;

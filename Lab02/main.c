@@ -4,6 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 
+static int do_part_2 = 0;
 
 typedef enum pstate
 {
@@ -296,6 +297,19 @@ int main()
                         break;
                     case Terminated:
                         processes[current_process] = Completed;
+                        if (do_part_2 == 1) {
+                            for(int i=0;i<20;i++) {
+                                if(processes[i] == ReadySuspend || processes[i] == BlockedSuspend) {
+                                    if (processes[i] == ReadySuspend) {
+                                        processes[i] = Ready;
+                                    }
+                                    else {
+                                        processes[i] = Blocked;
+                                    }
+                                    break;
+                                }
+                            }
+                        }
                         break;
                     case Created:
                         processes[current_process] = New;
@@ -311,6 +325,28 @@ int main()
             }
             //Part 2: (TODO) swap out a single process when all processes are either blocked or new
             //end of a line here
+            if(do_part_2 == 1) {
+                int need_to_swap_out = 1;
+                for(int i=0;i<20;i++) {
+                    if (processes[i] != Blocked && processes[i] != New && processes[i] != NotExist) {
+                        need_to_swap_out = 0;
+                    }
+                }
+                if(need_to_swap_out) {
+                    for(int i=0;i<20;i++) {
+                        if (processes[i] == Blocked) {
+                            processes[i] = BlockedSuspend;
+                            break;
+                        }
+                    }
+                    for (int i=0;i<20;i++) {
+                        if(processes[i]==New) {
+                            processes[i] = Ready;
+                            break;
+                        }
+                    }
+                }
+            }
             printf("States: ");
             print_states();
         }

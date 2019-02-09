@@ -121,7 +121,7 @@ pstate get_initial_state(char * s)
     if (strstr(s, "Blocked")) return Blocked;
     if (strstr(s, "Completed")) return Completed;
     printf("invalid state %s", s);
-    return -1;
+    return NotExist;
 }
 
 
@@ -171,7 +171,7 @@ int main()
         int line_index = 0;
         int line_index_offset = 0;
         
-        printf("\n\nSimulation %i begin:\n", file_num + 1);
+        printf("\n\nSimulation %lu begin:\n", file_num + 1);
         
         for(int i=0;i<20;i++) {
             processes[i] = NotExist;

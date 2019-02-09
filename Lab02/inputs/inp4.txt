@@ -5,4 +5,4 @@ At time 18: P4 is dispatched.
 At time 20: P4 requests the disk.
 At time 24: P7 is dispatched; An interrupt occurred for P1.
 At time 28: P7 is terminated.
-At time 33: An interrupt occurred for P2; An interrupt occureed for P8.
+At time 33: An interrupt occurred for P2; An interrupt occurred for P8.

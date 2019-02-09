@@ -149,10 +149,12 @@ int get_pid(char* s) {
     return get_first_int(s);
 }
 
-void print_states() {
+void print_states(int just_changed[]) {
+    printf("States:");
     for (int i=0;i<20;i++) {
         if(processes[i] != NotExist) {
-            printf("P%d %s ",i,state_strings[processes[i]]);
+            printf(" P%d %s",i,state_strings[processes[i]]);
+            if (just_changed[i]) printf("*");
         }
     }
     printf("\n");
@@ -169,7 +171,7 @@ int main()
         int line_index = 0;
         int line_index_offset = 0;
         
-        printf("\nSimulation %i begin:\n", file_num + 1);
+        printf("\n\nSimulation %i begin:\n", file_num + 1);
         
         for(int i=0;i<20;i++) {
             processes[i] = NotExist;
@@ -199,15 +201,17 @@ int main()
             processes[get_pid(sub_line)] = get_initial_state(sub_line);
         }
         
-        printf("Initial states\n");
-        print_states();
+        int none[20] = {0};
+        printf("Initial ");
+        print_states(none);
         
         while (fgets(current_line, 500, fp) != NULL)
         {
             if (strlen(current_line) < 3) {
                 continue; // Means it's c being stupid
             }
-            printf("%s", current_line);
+            int states_changed[20] = {0};
+            printf("\n%s", current_line);
             int curr_time = get_first_int(current_line);
             line_index = 0;
             while(current_line[line_index] != ':') {
@@ -236,6 +240,7 @@ int main()
                 
                 action next_action = get_action(sub_line);
                 int current_process = get_pid(sub_line);
+                states_changed[current_process] = 1;
                 switch (next_action)
                 {
                     case Dispatched:
@@ -320,8 +325,7 @@ int main()
                     }
                 }
             }
-            printf("States: ");
-            print_states();
+            print_states(states_changed);
         }
         fclose(fp);
     }

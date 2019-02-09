@@ -127,7 +127,7 @@ pstate get_initial_state(char * s)
 
 int get_first_int(char* s) 
 {
-    //this is dumb but I don't care
+    // this is dumb but I don't care
     int start_index = -1;
     int end_index = -1;
     for (int i=0; end_index == -1; i++) 
@@ -161,7 +161,7 @@ void print_states() {
 
 int main() 
 {
-    for (size_t file_num = 0; file_num < 4; ++file_num) //For each file in the list do a separate analysis
+    for (size_t file_num = 0; file_num < 4; ++file_num) // For each file in the list do a separate analysis
     {
         char current_line[500];
         char sub_line[100];
@@ -169,21 +169,21 @@ int main()
         int line_index = 0;
         int line_index_offset = 0;
         
-        printf("\nSimulation %i begin:\n", file_num);
+        printf("\nSimulation %i begin:\n", file_num + 1);
         
         for(int i=0;i<20;i++) {
             processes[i] = NotExist;
-        } //If the process doesn't exist at the start, it's not one that we're working with. We'll use the first line to see if they do exist.
+        } // If the process doesn't exist at the start, it's not one that we're working with. We'll use the first line to see if they do exist.
         
         
         FILE *fp = fopen(file_paths[file_num],"r");
-        if(fp == NULL) { //check to make sure the file exists (in case you're using a different directory, etc)
+        if(fp == NULL) { // check to make sure the file exists (in case you're using a different directory, etc)
             printf("File was null");
             return -1;
         }
         fgets(current_line, 500, fp);
         
-        //populate initial states
+        // populate initial states
         while(current_line[line_index] != '\0') {
             line_index++;
             line_index_offset = line_index;
@@ -205,8 +205,9 @@ int main()
         while (fgets(current_line, 500, fp) != NULL)
         {
             if (strlen(current_line) < 3) {
-                continue; //Means it's c being stupid
+                continue; // Means it's c being stupid
             }
+            printf("%s", current_line);
             int curr_time = get_first_int(current_line);
             line_index = 0;
             while(current_line[line_index] != ':') {
@@ -269,7 +270,7 @@ int main()
                         break;
                     case Terminated:
                         processes[current_process] = Completed;
-                        if (do_part_2 == 1) { //Swap a process in, since we've just completed one
+                        if (do_part_2 == 1) { // Swap a process in, since we've just completed one
                             for(int i=0;i<20;i++) {
                                 if(processes[i] == ReadySuspend || processes[i] == BlockedSuspend) {
                                     if (processes[i] == ReadySuspend) {
@@ -295,23 +296,23 @@ int main()
                         break;
                 }
             }
-            //end of a line here
-            //Part 2: swap out a single process when all processes are either blocked or new
+            // end of a line here
+            // Part 2: swap out a single process when all processes are either blocked or new
             if(do_part_2 == 1) {
                 int need_to_swap_out = 1;
-                for(int i=0;i<20;i++) { //First, see if we need to swap one out
+                for(int i=0;i<20;i++) { // First, see if we need to swap one out
                     if (processes[i] != Blocked && processes[i] != New && processes[i] != NotExist) {
                         need_to_swap_out = 0;
                     }
                 }
-                if(need_to_swap_out) { //If we need to swap one out, swap out one that's blocked
+                if(need_to_swap_out) { // If we need to swap one out, swap out one that's blocked
                     for(int i=0;i<20;i++) {
                         if (processes[i] == Blocked) {
                             processes[i] = BlockedSuspend;
                             break;
                         }
                     }
-                    for (int i=0;i<20;i++) { //If we've swapped one out, we can now bring one in (if one exists)
+                    for (int i=0;i<20;i++) { // If we've swapped one out, we can now bring one in (if one exists)
                         if(processes[i]==New) {
                             processes[i] = Ready;
                             break;

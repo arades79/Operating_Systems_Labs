@@ -367,7 +367,7 @@ int main()
                     }
                     for (int i = 0; i < 20; i++)
                     { // If we've swapped one out, we can now bring one in (if one exists)
-                        if (processes[i] == New)
+                        if (processes[i] == New || processes[i] == ReadySuspend)
                         {
                             processes[i] = Ready;
                             break;

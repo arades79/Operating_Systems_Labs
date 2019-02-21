@@ -4,7 +4,6 @@
 #include <string.h>
 #include <ctype.h>
 
-static int do_part_2 = 0;
 
 typedef enum pstate
 {
@@ -202,6 +201,21 @@ void print_states(int just_changed[])
     printf("\n");
 }
 
+/**
+ * @brief scan process list to see 
+*/
+int get_need_to_swap(int percent)
+{
+        for (int i = 0; i < 20; i++)
+        { // First, see if we need to swap one out
+            if (processes[i] != Blocked && processes[i] != New && processes[i] != NotExist)
+            {
+                return 0;
+            }
+        }
+    return 1;
+}
+
 int main()
 {
     // For each file in the list do a separate analysis
@@ -316,18 +330,16 @@ int main()
                     break;
                 case Terminated:
                     processes[current_process] = Completed;
-                    if (do_part_2 == 1)
-                    { // Swap a process in, since we've just completed one
-                        for (int i = 0; i < 20; i++)
+                    // Swap a process in, since we've just completed one
+                    for (int i = 0; i < 20; i++)
+                    {
+                        if (processes[i] == ReadySuspend || processes[i] == BlockedSuspend)
                         {
-                            if (processes[i] == ReadySuspend || processes[i] == BlockedSuspend)
-                            {
-                                if (processes[i] == ReadySuspend)
-                                    processes[i] = Ready;
-                                else
-                                    processes[i] = Blocked;
-                                break;
-                            }
+                            if (processes[i] == ReadySuspend)
+                                processes[i] = Ready;
+                            else
+                                processes[i] = Blocked;
+                            break;
                         }
                     }
                     break;
@@ -345,33 +357,22 @@ int main()
             }
             // end of a line here
             // Part 2: swap out a single process when all processes are either blocked or new
-            if (do_part_2 == 1)
-            {
-                int need_to_swap_out = 1;
+            if (get_need_to_swap(100))
+            { // If we need to swap one out, swap out one that's blocked
                 for (int i = 0; i < 20; i++)
-                { // First, see if we need to swap one out
-                    if (processes[i] != Blocked && processes[i] != New && processes[i] != NotExist)
+                {
+                    if (processes[i] == Blocked)
                     {
-                        need_to_swap_out = 0;
+                        processes[i] = BlockedSuspend;
+                        break;
                     }
                 }
-                if (need_to_swap_out)
-                { // If we need to swap one out, swap out one that's blocked
-                    for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 20; i++)
+                { // If we've swapped one out, we can now bring one in (if one exists)
+                    if (processes[i] == New || processes[i] == ReadySuspend)
                     {
-                        if (processes[i] == Blocked)
-                        {
-                            processes[i] = BlockedSuspend;
-                            break;
-                        }
-                    }
-                    for (int i = 0; i < 20; i++)
-                    { // If we've swapped one out, we can now bring one in (if one exists)
-                        if (processes[i] == New || processes[i] == ReadySuspend)
-                        {
-                            processes[i] = Ready;
-                            break;
-                        }
+                        processes[i] = Ready;
+                        break;
                     }
                 }
             }

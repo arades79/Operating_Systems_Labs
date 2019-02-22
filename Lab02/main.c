@@ -201,7 +201,9 @@ void print_states(int just_changed[])
 }
 
 /**
- * @brief scan process list to see 
+ * @brief scan process list to see if enough processes are blocked to swap
+ * 
+ * @param percent integer between 0 and 100 for percent of active processes
 */
 int get_need_to_swap(int percent)
 {
@@ -221,8 +223,28 @@ int get_need_to_swap(int percent)
     return (proportion_blocked > percent);
 }
 
+int get_user_percentage()
+{
+    puts("what percentage of processes should be blocked to induce a swap?");
+    int percentage = 0;
+    int valid = 0;
+    while (1)
+    {
+        scanf("%i", &percentage);
+        valid = percentage >= 0 && percentage <= 100;
+        if (valid)
+        {
+            return percentage;
+        }
+        puts("invalid percentage, enter a number between 0 and 100");
+    }
+}
+
 int main()
 {
+    // prompt user interactively for percent
+    int percent = get_user_percentage();
+
     // For each file in the list do a separate analysis
     for (size_t file_num = 0; file_num < 4; ++file_num)
     {
@@ -362,7 +384,7 @@ int main()
             }
             // end of a line here
             // swap out a process if a given percentage of the active processes are blocked
-            if (get_need_to_swap(100))
+            if (get_need_to_swap(percent))
             { // If we need to swap one out, swap out one that's blocked
                 for (int i = 0; i < 20; i++)
                 {

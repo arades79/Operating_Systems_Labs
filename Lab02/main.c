@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <string.h>
 #include <ctype.h>
-
 
 typedef enum pstate
 {
@@ -206,14 +205,20 @@ void print_states(int just_changed[])
 */
 int get_need_to_swap(int percent)
 {
-        for (int i = 0; i < 20; i++)
-        { // First, see if we need to swap one out
-            if (processes[i] != Blocked && processes[i] != New && processes[i] != NotExist)
-            {
-                return 0;
-            }
-        }
-    return 1;
+    int total_processes = 0;
+    int blocked_processes = 0;
+    for (int i = 0; i < 20; i++)
+    {
+        // number of runnable processes varies by test case
+        // simultaneously count runnable processes and blocked
+        int blocked = (processes[i] == Blocked);
+        total_processes += (blocked || processes[i] == Ready);
+        blocked_processes += blocked;
+    }
+    // get the proportion using an integer division
+    blocked_processes *= 100;
+    int proportion_blocked = blocked_processes / total_processes;
+    return (proportion_blocked > percent);
 }
 
 int main()
@@ -356,7 +361,7 @@ int main()
                 }
             }
             // end of a line here
-            // Part 2: swap out a single process when all processes are either blocked or new
+            // swap out a process if a given percentage of the active processes are blocked
             if (get_need_to_swap(100))
             { // If we need to swap one out, swap out one that's blocked
                 for (int i = 0; i < 20; i++)

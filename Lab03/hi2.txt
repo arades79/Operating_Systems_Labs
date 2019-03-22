@@ -1,0 +1,780 @@
+2
+a 1, b 100, num_samples 100000: 0.1760
+3
+a 1, b 100, num_samples 100000: 8.2251
+4
+a 1, b 100, num_samples 100000: 4.4297
+5
+a 1, b 100, num_samples 100000: 1.7433
+6
+a 1, b 100, num_samples 100000: 2.3768
+7
+a 1, b 100, num_samples 100000: 8.0907
+8
+a 1, b 100, num_samples 100000: 3.1211
+9
+a 1, b 100, num_samples 100000: 0.9329
+10
+a 1, b 100, num_samples 100000: 1.8247
+11
+a 1, b 100, num_samples 100000: 0.2326
+12
+a 1, b 100, num_samples 100000: 0.4465
+13
+a 1, b 100, num_samples 100000: 0.9000
+14
+a 1, b 100, num_samples 100000: 0.9133
+15
+a 1, b 100, num_samples 100000: 0.4144
+16
+a 1, b 100, num_samples 100000: 0.6224
+17
+a 1, b 100, num_samples 100000: 0.1912
+18
+a 1, b 100, num_samples 100000: 0.6458
+19
+a 1, b 100, num_samples 100000: 0.4461
+20
+a 1, b 100, num_samples 100000: 0.3966
+21
+a 1, b 100, num_samples 100000: 0.4274
+22
+a 1, b 100, num_samples 100000: 0.2534
+23
+a 1, b 100, num_samples 100000: 0.1926
+24
+a 1, b 100, num_samples 100000: 0.1946
+25
+a 1, b 100, num_samples 100000: 0.3047
+26
+a 1, b 100, num_samples 100000: 0.2968
+27
+a 1, b 100, num_samples 100000: 0.5533
+28
+a 1, b 100, num_samples 100000: 0.5116
+29
+a 1, b 100, num_samples 100000: 0.2657
+30
+a 1, b 100, num_samples 100000: 0.4316
+31
+a 1, b 100, num_samples 100000: 0.4511
+32
+a 1, b 100, num_samples 100000: 0.3510
+33
+a 1, b 100, num_samples 100000: 0.3732
+34
+a 1, b 100, num_samples 100000: 0.3417
+35
+a 1, b 100, num_samples 100000: 0.3206
+36
+a 1, b 100, num_samples 100000: 0.4289
+37
+a 1, b 100, num_samples 100000: 0.4154
+38
+a 1, b 100, num_samples 100000: 0.4391
+39
+a 1, b 100, num_samples 100000: 0.4127
+40
+a 1, b 100, num_samples 100000: 0.6655
+2
+a 1, b 100, num_samples 100000: 0.1994
+3
+a 1, b 100, num_samples 100000: 11.5782
+4
+a 1, b 100, num_samples 100000: 0.0989
+5
+a 1, b 100, num_samples 100000: 4.2640
+6
+a 1, b 100, num_samples 100000: 9.5764
+7
+a 1, b 100, num_samples 100000: 11.4279
+8
+a 1, b 100, num_samples 100000: 3.4978
+9
+a 1, b 100, num_samples 100000: 5.9490
+10
+a 1, b 100, num_samples 100000: 1.5140
+11
+a 1, b 100, num_samples 100000: 0.6734
+12
+a 1, b 100, num_samples 100000: 0.8220
+13
+a 1, b 100, num_samples 100000: 0.2707
+14
+a 1, b 100, num_samples 100000: 0.6633
+15
+a 1, b 100, num_samples 100000: 0.5366
+16
+a 1, b 100, num_samples 100000: 0.2851
+17
+a 1, b 100, num_samples 100000: 0.3145
+18
+a 1, b 100, num_samples 100000: 0.3602
+19
+a 1, b 100, num_samples 100000: 0.4995
+20
+a 1, b 100, num_samples 100000: 0.8193
+21
+a 1, b 100, num_samples 100000: 0.4189
+22
+a 1, b 100, num_samples 100000: 0.2294
+23
+a 1, b 100, num_samples 100000: 0.4282
+24
+a 1, b 100, num_samples 100000: 0.4273
+25
+a 1, b 100, num_samples 100000: 0.3038
+26
+a 1, b 100, num_samples 100000: 0.5451
+27
+a 1, b 100, num_samples 100000: 0.3757
+28
+a 1, b 100, num_samples 100000: 0.3541
+29
+a 1, b 100, num_samples 100000: 0.3423
+30
+a 1, b 100, num_samples 100000: 0.4200
+31
+a 1, b 100, num_samples 100000: 0.3367
+32
+a 1, b 100, num_samples 100000: 0.3042
+33
+a 1, b 100, num_samples 100000: 0.3665
+34
+a 1, b 100, num_samples 100000: 0.2846
+35
+a 1, b 100, num_samples 100000: 0.4203
+36
+a 1, b 100, num_samples 100000: 0.4401
+37
+a 1, b 100, num_samples 100000: 0.3408
+38
+a 1, b 100, num_samples 100000: 0.3464
+39
+a 1, b 100, num_samples 100000: 0.3508
+40
+a 1, b 100, num_samples 100000: 0.3937
+2
+a 1, b 100, num_samples 100000: 0.1654
+3
+a 1, b 100, num_samples 100000: 10.8695
+4
+a 1, b 100, num_samples 100000: 0.9547
+5
+a 1, b 100, num_samples 100000: 15.5726
+6
+a 1, b 100, num_samples 100000: 16.3322
+7
+a 1, b 100, num_samples 100000: 9.5578
+8
+a 1, b 100, num_samples 100000: 5.2345
+9
+a 1, b 100, num_samples 100000: 6.6706
+10
+a 1, b 100, num_samples 100000: 1.3151
+11
+a 1, b 100, num_samples 100000: 0.9028
+12
+a 1, b 100, num_samples 100000: 1.2551
+13
+a 1, b 100, num_samples 100000: 0.5145
+14
+a 1, b 100, num_samples 100000: 0.8609
+15
+a 1, b 100, num_samples 100000: 0.3339
+16
+a 1, b 100, num_samples 100000: 0.3890
+17
+a 1, b 100, num_samples 100000: 0.2222
+18
+a 1, b 100, num_samples 100000: 0.4533
+19
+a 1, b 100, num_samples 100000: 0.2903
+20
+a 1, b 100, num_samples 100000: 0.3788
+21
+a 1, b 100, num_samples 100000: 0.2752
+22
+a 1, b 100, num_samples 100000: 0.3116
+23
+a 1, b 100, num_samples 100000: 0.4627
+24
+a 1, b 100, num_samples 100000: 0.3757
+25
+a 1, b 100, num_samples 100000: 0.5401
+26
+a 1, b 100, num_samples 100000: 0.4366
+27
+a 1, b 100, num_samples 100000: 0.2167
+28
+a 1, b 100, num_samples 100000: 0.3603
+29
+a 1, b 100, num_samples 100000: 0.3745
+30
+a 1, b 100, num_samples 100000: 0.3837
+31
+a 1, b 100, num_samples 100000: 0.3677
+32
+a 1, b 100, num_samples 100000: 0.2707
+33
+a 1, b 100, num_samples 100000: 0.5575
+34
+a 1, b 100, num_samples 100000: 0.3761
+35
+a 1, b 100, num_samples 100000: 0.3809
+36
+a 1, b 100, num_samples 100000: 0.3563
+37
+a 1, b 100, num_samples 100000: 0.3405
+38
+a 1, b 100, num_samples 100000: 0.3485
+39
+a 1, b 100, num_samples 100000: 0.3418
+40
+a 1, b 100, num_samples 100000: 0.4746
+2
+a 1, b 100, num_samples 100000: 0.1932
+3
+a 1, b 100, num_samples 100000: 10.9243
+4
+a 1, b 100, num_samples 100000: 0.0968
+5
+a 1, b 100, num_samples 100000: 3.7916
+6
+a 1, b 100, num_samples 100000: 6.1202
+7
+a 1, b 100, num_samples 100000: 5.3269
+8
+a 1, b 100, num_samples 100000: 2.2886
+9
+a 1, b 100, num_samples 100000: 4.7607
+10
+a 1, b 100, num_samples 100000: 5.8068
+11
+a 1, b 100, num_samples 100000: 0.9125
+12
+a 1, b 100, num_samples 100000: 0.3326
+13
+a 1, b 100, num_samples 100000: 0.7552
+14
+a 1, b 100, num_samples 100000: 1.3291
+15
+a 1, b 100, num_samples 100000: 0.5699
+16
+a 1, b 100, num_samples 100000: 0.4931
+17
+a 1, b 100, num_samples 100000: 0.3398
+18
+a 1, b 100, num_samples 100000: 0.5324
+19
+a 1, b 100, num_samples 100000: 0.2273
+20
+a 1, b 100, num_samples 100000: 0.3565
+21
+a 1, b 100, num_samples 100000: 0.3166
+22
+a 1, b 100, num_samples 100000: 0.3186
+23
+a 1, b 100, num_samples 100000: 0.5450
+24
+a 1, b 100, num_samples 100000: 0.3551
+25
+a 1, b 100, num_samples 100000: 0.3392
+26
+a 1, b 100, num_samples 100000: 0.3230
+27
+a 1, b 100, num_samples 100000: 0.3497
+28
+a 1, b 100, num_samples 100000: 0.3909
+29
+a 1, b 100, num_samples 100000: 0.3858
+30
+a 1, b 100, num_samples 100000: 0.3249
+31
+a 1, b 100, num_samples 100000: 0.3442
+32
+a 1, b 100, num_samples 100000: 0.5496
+33
+a 1, b 100, num_samples 100000: 0.4723
+34
+a 1, b 100, num_samples 100000: 0.3751
+35
+a 1, b 100, num_samples 100000: 0.3629
+36
+a 1, b 100, num_samples 100000: 0.3153
+37
+a 1, b 100, num_samples 100000: 0.4047
+38
+a 1, b 100, num_samples 100000: 0.3148
+39
+a 1, b 100, num_samples 100000: 0.3600
+40
+a 1, b 100, num_samples 100000: 0.4008
+2
+a 1, b 100, num_samples 100000: 0.2101
+3
+a 1, b 100, num_samples 100000: 15.7518
+4
+a 1, b 100, num_samples 100000: 7.9781
+5
+a 1, b 100, num_samples 100000: 17.1861
+6
+a 1, b 100, num_samples 100000: 6.1959
+7
+a 1, b 100, num_samples 100000: 10.5655
+8
+a 1, b 100, num_samples 100000: 3.7378
+9
+a 1, b 100, num_samples 100000: 1.2635
+10
+a 1, b 100, num_samples 100000: 1.3620
+11
+a 1, b 100, num_samples 100000: 1.1166
+12
+a 1, b 100, num_samples 100000: 0.7801
+13
+a 1, b 100, num_samples 100000: 0.3573
+14
+a 1, b 100, num_samples 100000: 0.3932
+15
+a 1, b 100, num_samples 100000: 0.5640
+16
+a 1, b 100, num_samples 100000: 0.3752
+17
+a 1, b 100, num_samples 100000: 0.3347
+18
+a 1, b 100, num_samples 100000: 0.4597
+19
+a 1, b 100, num_samples 100000: 0.2558
+20
+a 1, b 100, num_samples 100000: 0.1685
+21
+a 1, b 100, num_samples 100000: 0.3454
+22
+a 1, b 100, num_samples 100000: 0.7435
+23
+a 1, b 100, num_samples 100000: 0.9489
+24
+a 1, b 100, num_samples 100000: 0.3696
+25
+a 1, b 100, num_samples 100000: 0.3133
+26
+a 1, b 100, num_samples 100000: 0.3550
+27
+a 1, b 100, num_samples 100000: 0.4508
+28
+a 1, b 100, num_samples 100000: 0.4409
+29
+a 1, b 100, num_samples 100000: 0.2513
+30
+a 1, b 100, num_samples 100000: 0.3439
+31
+a 1, b 100, num_samples 100000: 0.2350
+32
+a 1, b 100, num_samples 100000: 0.3483
+33
+a 1, b 100, num_samples 100000: 0.3430
+34
+a 1, b 100, num_samples 100000: 0.3836
+35
+a 1, b 100, num_samples 100000: 0.4361
+36
+a 1, b 100, num_samples 100000: 0.4117
+37
+a 1, b 100, num_samples 100000: 0.3263
+38
+a 1, b 100, num_samples 100000: 0.3148
+39
+a 1, b 100, num_samples 100000: 0.4007
+40
+a 1, b 100, num_samples 100000: 0.3111
+2
+a 1, b 100, num_samples 100000: 0.1558
+3
+a 1, b 100, num_samples 100000: 13.2653
+4
+a 1, b 100, num_samples 100000: 0.1013
+5
+a 1, b 100, num_samples 100000: 1.7836
+6
+a 1, b 100, num_samples 100000: 12.1534
+7
+a 1, b 100, num_samples 100000: 0.2317
+8
+a 1, b 100, num_samples 100000: 8.0840
+9
+a 1, b 100, num_samples 100000: 5.7046
+10
+a 1, b 100, num_samples 100000: 1.3254
+11
+a 1, b 100, num_samples 100000: 0.6953
+12
+a 1, b 100, num_samples 100000: 1.1163
+13
+a 1, b 100, num_samples 100000: 0.5490
+14
+a 1, b 100, num_samples 100000: 1.4291
+15
+a 1, b 100, num_samples 100000: 0.7952
+16
+a 1, b 100, num_samples 100000: 0.4862
+17
+a 1, b 100, num_samples 100000: 0.3033
+18
+a 1, b 100, num_samples 100000: 0.3551
+19
+a 1, b 100, num_samples 100000: 0.1790
+20
+a 1, b 100, num_samples 100000: 0.1818
+21
+a 1, b 100, num_samples 100000: 0.5101
+22
+a 1, b 100, num_samples 100000: 0.3727
+23
+a 1, b 100, num_samples 100000: 0.7733
+24
+a 1, b 100, num_samples 100000: 0.3041
+25
+a 1, b 100, num_samples 100000: 0.2342
+26
+a 1, b 100, num_samples 100000: 0.1574
+27
+a 1, b 100, num_samples 100000: 0.5321
+28
+a 1, b 100, num_samples 100000: 0.3228
+29
+a 1, b 100, num_samples 100000: 0.6340
+30
+a 1, b 100, num_samples 100000: 0.3739
+31
+a 1, b 100, num_samples 100000: 0.4257
+32
+a 1, b 100, num_samples 100000: 0.3441
+33
+a 1, b 100, num_samples 100000: 0.2860
+34
+a 1, b 100, num_samples 100000: 0.3804
+35
+a 1, b 100, num_samples 100000: 0.2152
+36
+a 1, b 100, num_samples 100000: 0.4521
+37
+a 1, b 100, num_samples 100000: 0.2139
+38
+a 1, b 100, num_samples 100000: 0.5734
+39
+a 1, b 100, num_samples 100000: 0.3152
+40
+a 1, b 100, num_samples 100000: 0.4013
+2
+a 1, b 100, num_samples 100000: 0.1529
+3
+a 1, b 100, num_samples 100000: 17.8751
+4
+a 1, b 100, num_samples 100000: 15.9852
+5
+a 1, b 100, num_samples 100000: 10.0078
+6
+a 1, b 100, num_samples 100000: 3.2361
+7
+a 1, b 100, num_samples 100000: 9.9045
+8
+a 1, b 100, num_samples 100000: 3.0676
+9
+a 1, b 100, num_samples 100000: 1.1116
+10
+a 1, b 100, num_samples 100000: 1.7861
+11
+a 1, b 100, num_samples 100000: 0.5746
+12
+a 1, b 100, num_samples 100000: 1.0937
+13
+a 1, b 100, num_samples 100000: 1.0676
+14
+a 1, b 100, num_samples 100000: 0.6093
+15
+a 1, b 100, num_samples 100000: 0.7336
+16
+a 1, b 100, num_samples 100000: 0.2882
+17
+a 1, b 100, num_samples 100000: 0.3019
+18
+a 1, b 100, num_samples 100000: 0.3430
+19
+a 1, b 100, num_samples 100000: 0.4533
+20
+a 1, b 100, num_samples 100000: 0.6202
+21
+a 1, b 100, num_samples 100000: 0.6997
+22
+a 1, b 100, num_samples 100000: 0.5043
+23
+a 1, b 100, num_samples 100000: 0.3338
+24
+a 1, b 100, num_samples 100000: 0.3519
+25
+a 1, b 100, num_samples 100000: 0.3096
+26
+a 1, b 100, num_samples 100000: 0.1721
+27
+a 1, b 100, num_samples 100000: 0.3248
+28
+a 1, b 100, num_samples 100000: 0.5139
+29
+a 1, b 100, num_samples 100000: 0.2853
+30
+a 1, b 100, num_samples 100000: 0.3389
+31
+a 1, b 100, num_samples 100000: 0.4672
+32
+a 1, b 100, num_samples 100000: 0.3388
+33
+a 1, b 100, num_samples 100000: 0.3151
+34
+a 1, b 100, num_samples 100000: 0.2638
+35
+a 1, b 100, num_samples 100000: 0.3559
+36
+a 1, b 100, num_samples 100000: 0.4327
+37
+a 1, b 100, num_samples 100000: 0.3749
+38
+a 1, b 100, num_samples 100000: 0.3564
+39
+a 1, b 100, num_samples 100000: 0.4256
+40
+a 1, b 100, num_samples 100000: 0.3250
+2
+a 1, b 100, num_samples 100000: 0.1979
+3
+a 1, b 100, num_samples 100000: 0.1409
+4
+a 1, b 100, num_samples 100000: 13.0468
+5
+a 1, b 100, num_samples 100000: 1.5619
+6
+a 1, b 100, num_samples 100000: 8.3767
+7
+a 1, b 100, num_samples 100000: 0.3495
+8
+a 1, b 100, num_samples 100000: 2.4702
+9
+a 1, b 100, num_samples 100000: 8.9577
+10
+a 1, b 100, num_samples 100000: 0.4388
+11
+a 1, b 100, num_samples 100000: 0.8628
+12
+a 1, b 100, num_samples 100000: 1.0143
+13
+a 1, b 100, num_samples 100000: 1.2712
+14
+a 1, b 100, num_samples 100000: 0.9442
+15
+a 1, b 100, num_samples 100000: 0.5933
+16
+a 1, b 100, num_samples 100000: 0.3164
+17
+a 1, b 100, num_samples 100000: 0.2687
+18
+a 1, b 100, num_samples 100000: 0.3362
+19
+a 1, b 100, num_samples 100000: 0.4242
+20
+a 1, b 100, num_samples 100000: 0.4406
+21
+a 1, b 100, num_samples 100000: 0.4058
+22
+a 1, b 100, num_samples 100000: 0.5635
+23
+a 1, b 100, num_samples 100000: 0.4307
+24
+a 1, b 100, num_samples 100000: 0.4430
+25
+a 1, b 100, num_samples 100000: 0.3584
+26
+a 1, b 100, num_samples 100000: 0.2215
+27
+a 1, b 100, num_samples 100000: 0.3690
+28
+a 1, b 100, num_samples 100000: 0.3383
+29
+a 1, b 100, num_samples 100000: 0.3798
+30
+a 1, b 100, num_samples 100000: 0.2943
+31
+a 1, b 100, num_samples 100000: 0.4179
+32
+a 1, b 100, num_samples 100000: 0.4885
+33
+a 1, b 100, num_samples 100000: 0.3099
+34
+a 1, b 100, num_samples 100000: 0.3983
+35
+a 1, b 100, num_samples 100000: 0.3677
+36
+a 1, b 100, num_samples 100000: 0.4498
+37
+a 1, b 100, num_samples 100000: 0.3408
+38
+a 1, b 100, num_samples 100000: 0.2994
+39
+a 1, b 100, num_samples 100000: 0.3556
+40
+a 1, b 100, num_samples 100000: 0.3634
+2
+a 1, b 100, num_samples 100000: 0.1532
+3
+a 1, b 100, num_samples 100000: 6.5554
+4
+a 1, b 100, num_samples 100000: 21.9993
+5
+a 1, b 100, num_samples 100000: 13.8557
+6
+a 1, b 100, num_samples 100000: 9.6734
+7
+a 1, b 100, num_samples 100000: 2.7803
+8
+a 1, b 100, num_samples 100000: 2.1115
+9
+a 1, b 100, num_samples 100000: 0.4471
+10
+a 1, b 100, num_samples 100000: 0.5523
+11
+a 1, b 100, num_samples 100000: 1.3707
+12
+a 1, b 100, num_samples 100000: 0.6568
+13
+a 1, b 100, num_samples 100000: 0.2054
+14
+a 1, b 100, num_samples 100000: 0.3475
+15
+a 1, b 100, num_samples 100000: 0.3973
+16
+a 1, b 100, num_samples 100000: 0.4373
+17
+a 1, b 100, num_samples 100000: 0.3404
+18
+a 1, b 100, num_samples 100000: 0.1895
+19
+a 1, b 100, num_samples 100000: 0.5724
+20
+a 1, b 100, num_samples 100000: 0.3734
+21
+a 1, b 100, num_samples 100000: 0.3306
+22
+a 1, b 100, num_samples 100000: 0.9089
+23
+a 1, b 100, num_samples 100000: 0.4173
+24
+a 1, b 100, num_samples 100000: 0.4550
+25
+a 1, b 100, num_samples 100000: 0.2808
+26
+a 1, b 100, num_samples 100000: 0.3464
+27
+a 1, b 100, num_samples 100000: 0.3972
+28
+a 1, b 100, num_samples 100000: 0.2365
+29
+a 1, b 100, num_samples 100000: 0.4478
+30
+a 1, b 100, num_samples 100000: 0.2810
+31
+a 1, b 100, num_samples 100000: 0.1874
+32
+a 1, b 100, num_samples 100000: 0.2964
+33
+a 1, b 100, num_samples 100000: 0.4020
+34
+a 1, b 100, num_samples 100000: 0.3588
+35
+a 1, b 100, num_samples 100000: 0.4640
+36
+a 1, b 100, num_samples 100000: 0.4167
+37
+a 1, b 100, num_samples 100000: 0.2619
+38
+a 1, b 100, num_samples 100000: 0.4042
+39
+a 1, b 100, num_samples 100000: 0.2965
+40
+a 1, b 100, num_samples 100000: 0.4322
+2
+a 1, b 100, num_samples 100000: 0.1552
+3
+a 1, b 100, num_samples 100000: 10.2416
+4
+a 1, b 100, num_samples 100000: 14.8585
+5
+a 1, b 100, num_samples 100000: 0.2772
+6
+a 1, b 100, num_samples 100000: 3.1148
+7
+a 1, b 100, num_samples 100000: 2.2007
+8
+a 1, b 100, num_samples 100000: 5.7318
+9
+a 1, b 100, num_samples 100000: 0.7512
+10
+a 1, b 100, num_samples 100000: 1.1462
+11
+a 1, b 100, num_samples 100000: 0.6157
+12
+a 1, b 100, num_samples 100000: 0.3931
+13
+a 1, b 100, num_samples 100000: 0.7817
+14
+a 1, b 100, num_samples 100000: 0.6402
+15
+a 1, b 100, num_samples 100000: 0.6822
+16
+a 1, b 100, num_samples 100000: 0.2923
+17
+a 1, b 100, num_samples 100000: 0.3170
+18
+a 1, b 100, num_samples 100000: 0.3544
+19
+a 1, b 100, num_samples 100000: 0.3746
+20
+a 1, b 100, num_samples 100000: 0.1832
+21
+a 1, b 100, num_samples 100000: 0.2499
+22
+a 1, b 100, num_samples 100000: 0.4224
+23
+a 1, b 100, num_samples 100000: 0.3380
+24
+a 1, b 100, num_samples 100000: 0.1619
+25
+a 1, b 100, num_samples 100000: 0.3012
+26
+a 1, b 100, num_samples 100000: 0.3832
+27
+a 1, b 100, num_samples 100000: 0.3036
+28
+a 1, b 100, num_samples 100000: 0.3912
+29
+a 1, b 100, num_samples 100000: 0.3769
+30
+a 1, b 100, num_samples 100000: 0.3503
+31
+a 1, b 100, num_samples 100000: 0.3609
+32
+a 1, b 100, num_samples 100000: 0.3281
+33
+a 1, b 100, num_samples 100000: 0.2398
+34
+a 1, b 100, num_samples 100000: 0.3811
+35
+a 1, b 100, num_samples 100000: 0.4844
+36
+a 1, b 100, num_samples 100000: 0.2472
+37
+a 1, b 100, num_samples 100000: 0.3871
+38
+a 1, b 100, num_samples 100000: 0.4377
+39
+a 1, b 100, num_samples 100000: 0.3293
+40
+a 1, b 100, num_samples 100000: 0.3991

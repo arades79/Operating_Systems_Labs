@@ -60,7 +60,13 @@ int get_next_spn(struct Process procs[5], int time) {
     return proc_idx;
 }
 
-//TODO turnaround and wait time
+void final_calcs(struct Process procs[5]) {
+    for(int i=0;i<5;i++) {
+        procs[i].turnaround_time = procs[i].finish_time - procs[i].start_time;
+        procs[i].wait_time = procs[i].turnaround_time - procs[i].service_time;
+    }
+}
+
 void run(struct Process procs[5], int strat) {
     int time = 0;
     for (int i=0;i<5;i++) {
@@ -167,31 +173,37 @@ int main() {
     printf("FCFS File 1:\n");
     struct ProcessList pl = get_processes("procs1.txt");
     run(pl.processes, 0);
+    final_calcs(pl.processes);
     print_table(pl.processes);
     print_gantt(pl.processes);
     printf("SPN File 1:\n");
     pl = get_processes("procs1.txt");
     run(pl.processes, 1);
+    final_calcs(pl.processes);
     print_table(pl.processes);
     print_gantt(pl.processes);
     printf("SRT File 1:\n");
     pl = get_processes("procs1.txt");
     run_srt(pl.processes);
+    final_calcs(pl.processes);
     print_table(pl.processes);
     print_gantt(pl.processes);
     printf("FCFS File 2:\n");
     pl = get_processes("procs2.txt");
     run(pl.processes, 0);
+    final_calcs(pl.processes);
     print_table(pl.processes);
     print_gantt(pl.processes);
     printf("SPN File 2:\n");
     pl = get_processes("procs2.txt");
     run(pl.processes, 1);
+    final_calcs(pl.processes);
     print_table(pl.processes);
     print_gantt(pl.processes);
     printf("SRT File 2:\n");
     pl = get_processes("procs2.txt");
     run_srt(pl.processes);
+    final_calcs(pl.processes);
     print_table(pl.processes);
     print_gantt(pl.processes);
 

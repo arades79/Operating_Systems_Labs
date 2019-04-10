@@ -188,7 +188,7 @@ int get_pid(char *s)
 void print_states(int just_changed[])
 {
     printf("States:");
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i <= 20; i++)
     {
         if (processes[i] != NotExist)
         {
@@ -357,16 +357,18 @@ int main()
                     break;
                 case Terminated:
                     processes[current_process] = Completed;
-                    // Swap a process in, since we've just completed one
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (processes[i] == ReadySuspend || processes[i] == BlockedSuspend)
+                    if (do_part_2 == 1)
+                    { // Swap a process in, since we've just completed one
+                        for (int i = 0; i < 20; i++)
                         {
-                            if (processes[i] == ReadySuspend)
-                                processes[i] = Ready;
-                            else
-                                processes[i] = Blocked;
-                            break;
+                            if (processes[i] == ReadySuspend || processes[i] == BlockedSuspend)
+                            {
+                                if (processes[i] == ReadySuspend)
+                                    processes[i] = Ready;
+                                else
+                                    processes[i] = Blocked;
+                                break;
+                            }
                         }
                     }
                     break;
@@ -387,19 +389,29 @@ int main()
             if (get_need_to_swap(percent))
             { // If we need to swap one out, swap out one that's blocked
                 for (int i = 0; i < 20; i++)
-                {
-                    if (processes[i] == Blocked)
+                { // First, see if we need to swap one out
+                    if (processes[i] != Blocked && processes[i] != New && processes[i] != NotExist)
                     {
-                        processes[i] = BlockedSuspend;
-                        break;
+                        need_to_swap_out = 0;
                     }
                 }
-                for (int i = 0; i < 20; i++)
-                { // If we've swapped one out, we can now bring one in (if one exists)
-                    if (processes[i] == New || processes[i] == ReadySuspend)
+                if (need_to_swap_out)
+                { // If we need to swap one out, swap out one that's blocked
+                    for (int i = 0; i < 20; i++)
                     {
-                        processes[i] = Ready;
-                        break;
+                        if (processes[i] == Blocked)
+                        {
+                            processes[i] = BlockedSuspend;
+                            break;
+                        }
+                    }
+                    for (int i = 0; i < 20; i++)
+                    { // If we've swapped one out, we can now bring one in (if one exists)
+                        if (processes[i] == New || processes[i] == ReadySuspend)
+                        {
+                            processes[i] = Ready;
+                            break;
+                        }
                     }
                 }
             }

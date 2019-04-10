@@ -357,8 +357,6 @@ int main()
                     break;
                 case Terminated:
                     processes[current_process] = Completed;
-                    if (do_part_2 == 1)
-                    { // Swap a process in, since we've just completed one
                         for (int i = 0; i < 20; i++)
                         {
                             if (processes[i] == ReadySuspend || processes[i] == BlockedSuspend)
@@ -370,7 +368,6 @@ int main()
                                 break;
                             }
                         }
-                    }
                     break;
                 case Created:
                     processes[current_process] = New;

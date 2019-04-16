@@ -1,0 +1,9 @@
+{P{1-20} {Ready | Running | Blocked | New | Blocked/Suspend | Ready/Suspend}} []
+At time {0-X}:  {{Time slice for | An interrupt occurred for | _} P{1-20} {requests the {keyboard | disk | printer | monitor | mouse} | is dispatched | is swapped {in | out} | _} ;} [] .
+
+
+{...} - set of possible commands
+_ - null is acceptable
+| - seperates valid commands
+[] - repeat last command 
+

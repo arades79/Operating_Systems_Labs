@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <string.h>
 #include <ctype.h>
-
+#include <time.h>
 
 typedef enum pstate
 {
@@ -68,7 +68,6 @@ static const char *state_strings[] =
 
 static pstate processes[] =
     {
-        Ready,
         Ready,
         Ready,
         Ready,
@@ -203,22 +202,69 @@ void print_states(int just_changed[])
 }
 
 /**
- * @brief scan process list to see 
+ * @brief scan process list to see if enough processes are blocked to swap
+ * 
+ * @param percent integer between 0 and 100 for percent of active processes
 */
 int get_need_to_swap(int percent)
 {
-        for (int i = 0; i <= 20; i++)
-        { // First, see if we need to swap one out
-            if (processes[i] != Blocked && processes[i] != New && processes[i] != NotExist)
-            {
-                return 0;
-            }
+    int total_processes = 0;
+    int blocked_processes = 0;
+    for (int i = 0; i <= 20; i++)
+    {
+        // number of runnable processes varies by test case
+        // simultaneously count runnable processes and blocked
+        int blocked = (processes[i] == Blocked);
+        total_processes += (blocked || processes[i] == Ready);
+        blocked_processes += blocked;
+    }
+    // get the proportion using an integer division
+    blocked_processes *= 100;
+    int proportion_blocked = blocked_processes / total_processes;
+    return (proportion_blocked > percent);
+}
+
+const int get_user_percentage()
+{
+    puts("what percentage of processes should be blocked to induce a swap?");
+    int percentage = 0;
+    int valid = 0;
+    while (1)
+    {
+        scanf("%i", &percentage);
+        valid = percentage >= 0 && percentage <= 100;
+        if (valid)
+        {
+            return percentage;
         }
-    return 1;
+        puts("invalid percentage, enter a number between 0 and 100");
+    }
+}
+
+const int get_user_processes()
+{
+    puts("how many processes should be swapped at a time?");
+    int processes = 0;
+    int valid = 0;
+    while (1)
+    {
+        scanf("%i", &processes);
+        valid = processes == 1 || processes == 2;
+        if (valid)
+        {
+            return processes;
+        }
+        puts("invalid, can only swap one or two processes at a time");
+    }
 }
 
 int main()
 {
+    // prompt user interactively for percent
+    const int percent = get_user_percentage();
+    const int num_to_swap = get_user_processes();
+    double total_latency = 0;
+
     // For each file in the list do a separate analysis
     for (size_t file_num = 0; file_num < 4; ++file_num)
     {
@@ -233,6 +279,9 @@ int main()
         // If the process doesn't exist at the start, it's not one that we're working with. We'll use the first line to see if they do exist.
         for (int i = 0; i <= 20; i++)
             processes[i] = NotExist;
+
+        // start the timer
+        time_t start_time = clock();
 
         FILE *fp = fopen(file_paths[file_num], "r");
         // check to make sure the file exists (in case you're using a different directory, etc)
@@ -272,7 +321,7 @@ int main()
             if (strlen(current_line) < 3)
                 continue; // Means it's c being stupid
 
-            int states_changed[21] = {0};
+            int states_changed[20] = {0};
             printf("\n%s", current_line);
             int curr_time = get_first_int(current_line);
             line_index = 0;
@@ -331,8 +380,7 @@ int main()
                     break;
                 case Terminated:
                     processes[current_process] = Completed;
-                    // Swap a process in, since we've just completed one
-                    for (int i = 0; i <= 20; i++)
+                    for (int i = 0; i < 20; i++)
                     {
                         if (processes[i] == ReadySuspend || processes[i] == BlockedSuspend)
                         {
@@ -357,29 +405,40 @@ int main()
                 }
             }
             // end of a line here
-            // Part 2: swap out a single process when all processes are either blocked or new
-            if (get_need_to_swap(100))
+            // swap out a process if a given percentage of the active processes are blocked
+            if (get_need_to_swap(percent))
             { // If we need to swap one out, swap out one that's blocked
-                for (int i = 0; i < 20; i++)
+                int left_to_swap = num_to_swap;
+                while (left_to_swap)
                 {
-                    if (processes[i] == Blocked)
+                    for (int i = 0; i < 20; i++)
                     {
-                        processes[i] = BlockedSuspend;
-                        break;
+                        if (processes[i] == Blocked)
+                        {
+                            processes[i] = BlockedSuspend;
+                            break;
+                        }
                     }
-                }
-                for (int i = 0; i < 20; i++)
-                { // If we've swapped one out, we can now bring one in (if one exists)
-                    if (processes[i] == New || processes[i] == ReadySuspend)
-                    {
-                        processes[i] = Ready;
-                        break;
+                    for (int i = 0; i <= 20; i++)
+                    { // If we've swapped one out, we can now bring one in (if one exists)
+                        if (processes[i] == New || processes[i] == ReadySuspend)
+                        {
+                            processes[i] = Ready;
+                            break;
+                        }
                     }
+                    left_to_swap--;
                 }
             }
             print_states(states_changed);
         }
         fclose(fp);
+        // stop timer and print latency
+        time_t time_delta = clock() - start_time;
+        double latency = (((double) time_delta) / CLOCKS_PER_SEC) * 1000;
+        total_latency += latency;
+        printf("trial latency: %f milliseconds\n", latency);
     }
+    printf("\ntotal latency: %f milliseconds\n", total_latency);
     return 69;
 }

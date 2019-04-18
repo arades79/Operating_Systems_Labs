@@ -1,2 +1,12 @@
-P1 Ready P2 Ready P3 Ready
-At time 1: P1 requests the keyboard.
+P1 Running P2 Ready P3 Blocked P4 Blocked P5 Blocked P6 Ready/Suspend P7 Ready/Suspend P8 Ready/Suspend P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+At time 5: P1 requests the keyboard; P2 is dispatched; An interrupt occured for P3.
+At time 10: An interrupt occured for P1; Time slice for P2 expired; P6 is dispatched; An interrupt occured for P3.
+At time 15: P6 requests the keyboard; P7 is dispatched; An interrupt occured for P10.
+At time 20: P7 requests the monitor; an interrupt occured for P6; P1 is dispatched.
+At time 25: Time slice for P1 expired; P8 is dispatched; An interrupt occured for P9.
+At time 27: P8 requests the monitor. P9 is dispatched.
+At time 30: An interrupt occured for P7; P9 requests the disk; P6 is dispatched.
+At time 40: Time slice for P6 expired; P2 is dispatched.
+At time 42: P2 requests the mouse; P6 is dispatched.
+At time 45: P6 requests the keyboard; P3 is dispatched. An interrupt occured for P8.
+At time 50: Time slice for P3 expires; P8 is dispatched.

@@ -1,2 +1,0 @@
-P1 Ready P2 Ready P3 Ready
-At time 1: P1 requests the keyboard.

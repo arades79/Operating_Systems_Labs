@@ -127,10 +127,10 @@ pstate get_initial_state(char *s)
 {
     if (strstr(s, "New"))
         return New;
-    if (strstr(s, "Ready"))
-        return Ready;
     if (strstr(s, "Ready/Suspend"))
         return ReadySuspend;
+    if (strstr(s, "Ready"))
+        return Ready;
     if (strstr(s, "Blocked/Suspend"))
         return BlockedSuspend;
     if (strstr(s, "Running"))
@@ -221,32 +221,53 @@ int get_need_to_swap(int percent)
     // get the proportion using an integer division
     blocked_processes *= 100;
     int proportion_blocked = blocked_processes / total_processes;
-    return (proportion_blocked > percent);
+    return (proportion_blocked >= percent);
+}
+
+void do_process_swap()
+{
+    for (int i = 0; i <= 20; i++)
+    {
+        if (processes[i] == Blocked)
+        {
+            processes[i] = BlockedSuspend;
+            break;
+        }
+    }
+    for (int i = 0; i <= 20; i++)
+    { // If we've swapped one out, we can now bring one in (if one exists)
+        if (processes[i] == New || processes[i] == ReadySuspend)
+        {
+            processes[i] = Ready;
+            break;
+        }
+    }
 }
 
 const int get_user_percentage()
 {
-    puts("what percentage of processes should be blocked to induce a swap?");
+    puts("what percentage of processes should be blocked to induce a swap? (80, 90, or 100)");
     int percentage = 0;
     int valid = 0;
-    while (1)
+    for (;;) // (clock_t time = 0, start_time = clock(); time < start_time + 10000; time = clock())
     {
         scanf("%i", &percentage);
-        valid = percentage >= 0 && percentage <= 100;
+        valid = percentage == 80 || percentage == 90 || percentage == 100;
         if (valid)
         {
             return percentage;
         }
-        puts("invalid percentage, enter a number between 0 and 100");
+        puts("invalid percentage, 80, 90, or 100");
     }
+    return 100;
 }
 
 const int get_user_processes()
 {
-    puts("how many processes should be swapped at a time?");
+    puts("how many processes should be swapped at a time? (1 or 2)");
     int processes = 0;
     int valid = 0;
-    while (1)
+    for (;;) // (clock_t time = 0, start_time = clock(); time < start_time + 10000; time = clock())
     {
         scanf("%i", &processes);
         valid = processes == 1 || processes == 2;
@@ -256,6 +277,7 @@ const int get_user_processes()
         }
         puts("invalid, can only swap one or two processes at a time");
     }
+    return 1;
 }
 
 int main()
@@ -266,7 +288,7 @@ int main()
     double total_latency = 0;
 
     // For each file in the list do a separate analysis
-    for (size_t file_num = 0; file_num < 4; ++file_num)
+    for (size_t file_num = 0; file_num < 3; ++file_num)
     {
         char current_line[500];
         char sub_line[100];
@@ -355,6 +377,11 @@ int main()
                 switch (next_action)
                 {
                 case Dispatched:
+                    if (processes[current_process] == ReadySuspend)
+                    {
+                        printf("P%i had to be swapped in.\n", current_process);
+                        do_process_swap();
+                    }
                     processes[current_process] = Running;
                     break;
                 case IORequest:
@@ -380,7 +407,7 @@ int main()
                     break;
                 case Terminated:
                     processes[current_process] = Completed;
-                    for (int i = 0; i < 20; i++)
+                    for (int i = 0; i <= 20; i++)
                     {
                         if (processes[i] == ReadySuspend || processes[i] == BlockedSuspend)
                         {
@@ -411,22 +438,7 @@ int main()
                 int left_to_swap = num_to_swap;
                 while (left_to_swap)
                 {
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (processes[i] == Blocked)
-                        {
-                            processes[i] = BlockedSuspend;
-                            break;
-                        }
-                    }
-                    for (int i = 0; i <= 20; i++)
-                    { // If we've swapped one out, we can now bring one in (if one exists)
-                        if (processes[i] == New || processes[i] == ReadySuspend)
-                        {
-                            processes[i] = Ready;
-                            break;
-                        }
-                    }
+                    do_process_swap();
                     left_to_swap--;
                 }
             }

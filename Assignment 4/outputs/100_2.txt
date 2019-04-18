@@ -1,0 +1,117 @@
+PS C:\Users\cravers\projects\Operating_Systems_Labs\Assignment 4> cd "c:\Users\cravers\projects\Operating_Systems_Labs\Assignment 4\" ; if ($?) { gcc main.c -o main } ; if ($?) { .\main }
+what percentage of processes should be blocked to induce a swap? (80, 90, or 100)
+100
+how many processes should be swapped at a time? (1 or 2)
+2
+
+
+Simulation 1 begin:
+Initial States: P1 Running P2 Ready P3 Blocked P4 Blocked P5 Blocked P6 Ready/Suspend P7 Ready/Suspend P8 Ready/Suspend P9 New P10 New P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 1: P1 requests the monitor; P2 is dispatched.
+States: P1 Blocked/Suspend* P2 Running* P3 Blocked/Suspend P4 Blocked P5 Blocked P6 Ready P7 Ready P8 Ready/Suspend P9 New P10 New P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 10: P2 requests the keyboard; P6 is dispatched.
+States: P1 Blocked/Suspend P2 Blocked* P3 Blocked/Suspend P4 Blocked P5 Blocked P6 Running* P7 Ready P8 Ready/Suspend P9 New P10 New P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 20: An interrupt occured for P3.
+States: P1 Blocked/Suspend P2 Blocked P3 Ready/Suspend* P4 Blocked P5 Blocked P6 Running P7 Ready P8 Ready/Suspend P9 New P10 New P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 30: Time slice for P6 expired; P3 is dispatched.
+P3 had to be swapped in.
+States: P1 Blocked/Suspend P2 Blocked/Suspend P3 Running* P4 Blocked P5 Blocked P6 Ready* P7 Ready P8 Ready/Suspend P9 New P10 New P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 40: An interrupt occured for P1; An interrupt occured for P2.
+States: P1 Ready/Suspend* P2 Ready/Suspend* P3 Running P4 Blocked P5 Blocked P6 Ready P7 Ready P8 Ready/Suspend P9 New P10 New P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 50: Time slice for P3 expired; P1 is dispatched.
+P1 had to be swapped in.
+States: P1 Running* P2 Ready/Suspend P3 Ready* P4 Blocked/Suspend P5 Blocked P6 Ready P7 Ready P8 Ready/Suspend P9 New P10 New P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 60: P1 is terminated; P2 is dispatched.
+States: P1 Completed* P2 Running* P3 Ready P4 Blocked/Suspend P5 Blocked P6 Ready P7 Ready P8 Ready/Suspend P9 New P10 New P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 70: P2 is terminated; P6 is dispatched.States: P1 Completed P2 Completed* P3 Ready P4 Blocked P5 Blocked P6 Running* P7 Ready P8 Ready/Suspend P9 New P10 New P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+trial latency: 13.000000 milliseconds
+
+
+Simulation 2 begin:
+Initial States: P1 Running P2 Ready P3 Blocked P4 Blocked P5 Blocked P6 Ready/Suspend P7 Ready/Suspend P8 Ready/Suspend P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 5: P1 requests the keyboard; P2 is dispatched; An interrupt occured for P3.
+States: P1 Blocked* P2 Running* P3 Ready* P4 Blocked P5 Blocked P6 Ready/Suspend P7 Ready/Suspend P8 Ready/Suspend P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 10: An interrupt occured for P1; Time slice for P2 expired; P6 is dispatched; An interrupt occured for P3.
+P6 had to be swapped in.
+States: P1 Ready* P2 Ready* P3 Ready/Suspend* P4 Blocked/Suspend P5 Blocked P6 Running* P7 Ready/Suspend P8 Ready/Suspend P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 15: P6 requests the keyboard; P7 is dispatched; An interrupt occured for P10.
+P7 had to be swapped in.
+States: P1 Ready P2 Ready P3 Ready P4 Blocked/Suspend P5 Blocked/Suspend P6 Blocked* P7 Running* P8 Ready/Suspend P9 Blocked P10 Ready* P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 20: P7 requests the monitor; an interrupt occured for P6; P1 is dispatched.
+States: P1 Running* P2 Ready P3 Ready P4 Blocked/Suspend P5 Blocked/Suspend P6 Ready* P7 Blocked* P8 Ready/Suspend P9 Blocked P10 Ready P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 25: Time slice for P1 expired; P8 is dispatched; An interrupt occured for P9.
+P8 had to be swapped in.
+States: P1 Ready* P2 Ready P3 Ready P4 Blocked/Suspend P5 Blocked/Suspend P6 Ready P7 Blocked/Suspend P8 Running* P9 Ready* P10 Ready P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 27: P8 requests the monitor. P9 is dispatched.
+States: P1 Ready P2 Ready P3 Ready P4 Blocked/Suspend P5 Blocked/Suspend P6 Ready P7 Blocked/Suspend P8 Blocked* P9 Ready P10 Ready P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 30: An interrupt occured for P7; P9 requests the disk; P6 is dispatched.
+States: P1 Ready P2 Ready P3 Ready P4 Blocked/Suspend P5 Blocked/Suspend P6 Running* P7 Ready/Suspend* P8 Blocked P9 Blocked* P10 Ready P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 40: Time slice for P6 expired; P2 is dispatched.
+States: P1 Ready P2 Running* P3 Ready P4 Blocked/Suspend P5 Blocked/Suspend P6 Ready* P7 Ready/Suspend P8 Blocked P9 Blocked P10 Ready P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 42: P2 requests the mouse; P6 is dispatched.
+States: P1 Ready P2 Blocked* P3 Ready P4 Blocked/Suspend P5 Blocked/Suspend P6 Running* P7 Ready/Suspend P8 Blocked P9 Blocked P10 Ready P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 45: P6 requests the keyboard; P3 is dispatched. An interrupt occured for P8.
+States: P1 Ready P2 Blocked P3 Running* P4 Blocked/Suspend P5 Blocked/Suspend P6 Blocked* P7 Ready/Suspend P8 Blocked P9 Blocked P10 Ready P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 50: Time slice for P3 expires; P8 is dispatched.
+States: P1 Ready P2 Blocked P3 Ready* P4 Blocked/Suspend P5 Blocked/Suspend P6 Blocked P7 Ready/Suspend P8 Running* P9 Blocked P10 Ready P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+trial latency: 23.000000 milliseconds
+
+
+Simulation 3 begin:
+Initial States: P1 Running P2 Ready P3 Blocked/Suspend P4 Blocked/Suspend P5 Blocked P6 Ready/Suspend P7 Ready/Suspend P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 1: P1 requests the mouse; P2 is dispatched; An interrupt occurred for P5.
+States: P1 Blocked* P2 Running* P3 Blocked/Suspend P4 Blocked/Suspend P5 Ready* P6 Ready/Suspend P7 Ready/Suspend P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 2: An interrupt occurred for P3; P2 requests the mouse; P5 is dispatched.
+States: P1 Blocked/Suspend P2 Blocked/Suspend* P3 Ready* P4 Blocked/Suspend P5 Running* P6 Ready P7 Ready/Suspend P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 4: An interrupt occurred for P13; P5 requests the mouse; P3 is dispatched.
+States: P1 Blocked/Suspend P2 Blocked/Suspend P3 Running* P4 Blocked/Suspend P5 Blocked* P6 Ready P7 Ready/Suspend P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Ready* P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked
+
+At time 5: An interrupt occurred for P20; P3 requests the mouse; P13 is dispatched.
+States: P1 Blocked/Suspend P2 Blocked/Suspend P3 Blocked* P4 Blocked/Suspend P5 Blocked P6 Ready P7 Ready/Suspend P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Running* P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Ready*
+
+At time 6: An interrupt occurred for P1; P13 requests the mouse; P6 is dispatched.
+States: P1 Ready/Suspend* P2 Blocked/Suspend P3 Blocked P4 Blocked/Suspend P5 Blocked P6 Running* P7 Ready/Suspend P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked* P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Ready*
+
+At time 7: Time slice for P6 expired; An interrupt occurred for P2; P7 is dispatched.
+P7 had to be swapped in.
+States: P1 Ready P2 Ready/Suspend* P3 Blocked/Suspend P4 Blocked/Suspend P5 Blocked P6 Ready* P7 Running* P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Ready*
+
+At time 8: P7 requests the mouse; P20 is dispatched.
+States: P1 Ready P2 Ready/Suspend P3 Blocked/Suspend P4 Blocked/Suspend P5 Blocked P6 Ready P7 Blocked* P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Running*
+
+At time 9: P20 requests the mouse; P1 is dispatched.
+States: P1 Running* P2 Ready/Suspend P3 Blocked/Suspend P4 Blocked/Suspend P5 Blocked P6 Ready P7 Blocked P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked*
+
+At time 10: An interrupt occurred for P4; P1 requests the mouse; P2 is dispatched.
+P2 had to be swapped in.
+States: P1 Blocked/Suspend* P2 Running* P3 Blocked/Suspend P4 Ready/Suspend* P5 Blocked P6 Ready P7 Blocked P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked*
+
+At time 11: P2 requests the mouse; P4 is dispatched.
+P4 had to be swapped in.
+States: P1 Blocked/Suspend P2 Blocked/Suspend* P3 Blocked/Suspend P4 Running* P5 Blocked P6 Ready P7 Blocked P8 Blocked P9 Blocked P10 Blocked P11 Blocked P12 Blocked P13 Blocked P14 New P15 Blocked P16 Blocked P17 Blocked P18 New P19 Blocked P20 Blocked*
+trial latency: 32.000000 milliseconds
+
+total latency: 68.000000 milliseconds
+PS C:\Users\cravers\projects\Operating_Systems_Labs\Assignment 4>

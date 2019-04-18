@@ -373,6 +373,16 @@ int main()
 
                 action next_action = get_action(sub_line);
                 int current_process = get_pid(sub_line);
+
+                for (int i = 0; i <= 20; i++)
+                {
+                    if (processes[i] == New) 
+                    {
+                        processes[i] = Ready;
+                        states_changed[i] = 1;
+                    }
+                }
+                    
                 states_changed[current_process] = 1;
                 switch (next_action)
                 {
@@ -380,7 +390,8 @@ int main()
                     if (processes[current_process] == ReadySuspend)
                     {
                         printf("P%i had to be swapped in.\n", current_process);
-                        do_process_swap();
+                        while (processes[current_process] == ReadySuspend) 
+                            do_process_swap();
                     }
                     processes[current_process] = Running;
                     break;
